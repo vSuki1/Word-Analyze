@@ -14,10 +14,13 @@ class WordAnalyzer:
         self.__frequencies = {}
 
     def process_file(self):
-        print(self.__filepath.exists())
-        file = self.__filepath.open("r", encoding="utf-8")
-        for line in file:
-            print(line)
+        try:
+            print(self.__filepath.exists())
+            file = self.__filepath.open("r", encoding="utf-8")
+            for line in file:
+                print(line)
+        except FileNotFoundError as e:
+            print("File not found")
 
         
           

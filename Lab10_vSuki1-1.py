@@ -13,4 +13,11 @@ class WordAnalyzer:
         self.__filepath = Path(filepath)
         self.__frequencies = {}
 
-    
+    def process_file(self):
+        print(self.__filepath.exists())
+        file = self.__filepath.open("r", encoding="utf-8")
+        for line in file:
+            print(line)
+
+        
+          

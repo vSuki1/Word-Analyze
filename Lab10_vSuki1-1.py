@@ -22,15 +22,20 @@ class WordAnalyzer:
                 line = line.translate(translator)
                 line = line.lower()
                 word = line.split()
+                
                 for w in word:
                     if w in self.__frequencies:
                         self.__frequencies[w] += 1
                     else:
                         self.__frequencies[w] = 1
-                print(line)
+                
         except FileNotFoundError as e:
             print("File not found")
+            return False
+        return True
     
 
-        
+analyzer = WordAnalyzer("princess_mars.txt")
+analyzer.process_file()
+print(analyzer._WordAnalyzer__frequencies)
           

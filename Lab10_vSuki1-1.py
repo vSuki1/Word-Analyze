@@ -30,7 +30,7 @@ class WordAnalyzer:
                         self.__frequencies[w] += 1
                     else:
                         self.__frequencies[w] = 1
-                
+            file.close()
         except FileNotFoundError as e:
             print("File not found")
             return False
@@ -69,8 +69,8 @@ def main():
      print("exited")
     elif choice in file_menu:
         analyzer = WordAnalyzer(file_menu[choice])
-        analyzer.process_file()
-        analyzer.print_report()
+        if analyzer.process_file():
+            analyzer.print_report()
     else:
         print("Invalid")
 

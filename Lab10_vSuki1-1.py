@@ -33,9 +33,15 @@ class WordAnalyzer:
             print("File not found")
             return False
         return True
+    def print_report(self):
+        word_list = sorted(self.__frequencies.keys())
+        
+        for word in word_list:
+            print(f"{word} :: {self.__frequencies[word]}")
+        
     
 
 analyzer = WordAnalyzer("princess_mars.txt")
 analyzer.process_file()
-print(analyzer._WordAnalyzer__frequencies)
+analyzer.print_report()
           

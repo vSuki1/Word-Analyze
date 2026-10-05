@@ -6,13 +6,13 @@ Author: Disukhi Ahmed
 
 from pathlib import Path
 import string
-
+"""Class to analyze word frequencies in a text file."""
 class WordAnalyzer:
-
+    """Class to initialize the WordAnalyzer with a file path."""
     def __init__(self, filepath):
         self.__filepath = Path(filepath)
         self.__frequencies = {}
-
+    """reads the file to count word frequencies."""
     def process_file(self):
         translator = str.maketrans("", "", string.punctuation)
         try: 
@@ -35,6 +35,7 @@ class WordAnalyzer:
             print("File not found")
             return False
         return True
+    """Prints the word frequencies in alphabetical order."""
     def print_report(self):
         word_list = sorted(self.__frequencies.keys())
         
@@ -48,7 +49,7 @@ analyzer.process_file()
 analyzer.print_report()
 """
 
-
+"""Main function to display the file menu and handle user input."""
 def main():
     file_menu = {
         "1": Path("princess_mars.txt"),
@@ -56,6 +57,7 @@ def main():
         "3": Path("treasure_island.txt"),
         "4": Path("monte_cristo.txt")
     }
+    print("Word Analyzer")
     print("Please select a file to analyze:")
     print("1. Princess of Mars")
     print("2. Tarzan")
